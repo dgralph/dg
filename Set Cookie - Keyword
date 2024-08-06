@@ -1,0 +1,17 @@
+<script>
+  // Function to set a cookie
+function setCookie(name, value, days) {
+  var expires = '';
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+  var dg_queryParams = new URLSearchParams(window.location.search);
+  var dg_term = dg_queryParams.get('utm_term');
+  if( dg_term ) {
+    setCookie('myKeywordParam', dg_term, 30);
+  }
+</script>
